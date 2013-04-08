@@ -16,6 +16,15 @@
 				<li><a href="#bucket" class="modal-close"><?php echo __("Buckets"); ?></a></li>
 				<li><a href="#form" class="modal-close"><?php echo __("Forms"); ?></a></li>
 			</ul>
+            
+			<div class="filters-type">
+				<h2 class="">Categories</h2>
+				<ul>
+					<li><a href="#"><span class="mark" style="background-color:red;"></span><span class="total">1</span>Project 1</a></li>
+					<li><a href="#"><span class="mark" style="background-color:orange;"></span><span class="total">1</span>Project 2</a></li>
+					<li><a href="#"><span class="mark" style="background-color:green;"></span><span class="total">1</span>Project 3</a></li>
+				</ul>
+			</div>
 
 			<div class="modal-toolbar">
 				<a href="#" class="button-submit button-primary modal-close">Done</a>

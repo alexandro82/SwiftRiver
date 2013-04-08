@@ -88,6 +88,25 @@ class Controller_User extends Controller_Swiftriver {
 		$this->sub_content = View::factory('pages/user/activity')
 			->bind('owner', $this->owner)
 			->bind('account', $this->visited_account);
+			
+		// Activity stream
+		$this->template->header->js .= HTML::script("themes/default/media/js/activities.js");
+		$this->sub_content->activity_stream = View::factory('template/activities')
+		    ->bind('activities', $activities)
+		    ->bind('fetch_url', $fetch_url)
+		    ->bind('owner', $this->owner)
+		    ->bind('gravatar_view', $gravatar_view);
+		
+		if ( ! $this->owner)
+		{
+			$activities = json_encode(
+				$this->account_service->get_activities($this->visited_account['id'])
+			);
+		} else {
+			$activities = json_encode(
+				$this->account_service->get_following_activities()
+			);
+		}
 	}
 	
 	public function action_content()
